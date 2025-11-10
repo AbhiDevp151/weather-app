@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    background: url('./assets/back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: lighten;
+    color: #222;
+}
+
+.wrapper {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(50,50,80,0.1);
+    padding: 32px 24px 24px 24px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #1976d2;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 28px;
+    margin: 0 8px;
+    border-radius: 8px 8px 0 0;
+    background: rgba(25, 118, 210, 0.09);
+    cursor: pointer;
+    font-weight: 500;
+    color: #1976d2;
+    transition: background 0.23s;
+}
+
+.current-tab {
+    background: #1976d2;
+    color: #fff;
+    box-shadow: 0 3px 6px rgba(30,60,90,0.10);
+}
+
+.Weather-container {
+    margin-top: 16px;
+    padding: 0;
+}
+
+.grant-location-container,
+.loading-container,
+.user-info-container,
+.parameter-container {
+    display: none;
+    margin: 24px 0;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.87);
+    box-shadow: 0 2px 8px rgba(32,80,140,0.07);
+}
+
+.active {
+    display: block;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto 0 auto;
+}
+
+.form-container input {
+    padding: 9px 15px;
+    border-radius: 8px 0 0 8px;
+    border: 2px solid #1976d2;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+/* Find this existing rule in your CSS */
+.form-container .btn {
+    padding: 0; /* <-- MODIFIED: Set to 0 */
+    border-radius: 0 8px 8px 0;
+   
+    border-left: none; /* <-- ADDED: Merges with the input field */
+    background: none; /* <-- MODIFIED: Set to none */
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+    /* ADDED: Prevents extra space */
+    font-size: 0; 
+    line-height: 0; 
+}
+
+/* Add this NEW rule for the image inside the button */
+.form-container .btn img {
+    display: inline; /* Ensures proper layout */
+    background: #ffffff; /* <-- MOVED from button */
+    padding: 9px 13px; /* <-- MOVED from button */
+    
+    /* This rounds the image corners to fit inside the button's border */
+    border-radius: 0 6px 6px 0; 
+    
+    /* This ensures the image itself doesn't change color on hover */
+    transition: background 0.2s;
+}
+
+/* Optional: Add a hover effect back */
+
+/* This rule styles the outer container for the 3 items */
+.parameter-container {
+    display: flex;         /* Makes child elements align in a row */
+    flex-direction: row;     /* Aligns them horizontally */
+    justify-content: space-between; /* Spreads the items evenly */
+    align-items: center;     /* Vertically centers items */
+    gap: 14px;               /* Space between each item */
+    margin-top: 22px;
+
+    /* Make sure it's active to be visible! */
+    /* This rule should already be in your CSS */
+}
+
+/* This rule styles EACH of the 3 items (windspeed, humidity, clouds) */
+.parameter {
+    display: flex;         
+    flex-direction: column;  /* Stacks items (icon, text, value) vertically */
+    justify-content: center; /* Centers them vertically */
+    align-items: center;     /* Centers them horizontally */
+    
+    flex: 1; /* Allows each item to grow and fill the space equally */
+    text-align: center;
+    background: rgba(230, 240, 255, 0.75); /* Slightly more visible */
+    border-radius: 10px;
+    padding: 14px 8px;
+    margin: 0 4px;
+    box-shadow: 0 2px 5px rgba(10, 60, 120, 0.10);
+}
+
+/* This new rule styles the IMAGES inside those 3 items */
+.parameter img {
+    width: 60px;   /* Set a reasonable width */
+    height: 60px;  /* Set a reasonable height */
+    margin-bottom: 6px;
+    object-fit: cover; /* Ensures image isn't distorted */
+}
+
+/* This styles the text labels like "windspeed" */
+.parameter p:first-of-type {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: capitalize;
+}
+
+/* This styles the data values like "10 m/s" */
+.parameter p:last-of-type {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1976d2; /* Match the theme color */
+    margin-top: 4px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    background: #2196f3;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+[data-weatherIcon] {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+[data-countryIcon] {
+    width: 36px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+[data-emp] {
+    display: block;
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: #1976d2;
+    margin: 10px 0;
+}
+
+
+
+/* Hide all main content sections by default */
+.grant-location-container,
+.form-container,
+.loading-container,
+.user-info-container,
+.parameter-container {
+    display: none;
+    /* Use flex if your layout needs it */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; 
+}
+
+/* Show the section that has the 'active' class */
+/* Show the section that has the 'active' class */
+.grant-location-container.active,
+.form-container.active,
+.loading-container.active,
+.user-info-container.active {
+    display: flex; 
+}
+
+/* We make a SPECIFIC rule for parameter-container when it's active */
+.parameter-container.active {
+    display: flex;
+    flex-direction: row; /* <-- THIS IS THE FIX */
+}
