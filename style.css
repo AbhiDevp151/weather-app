@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
-    background: url('./assets/back.jpg') no-repeat center center fixed;
+    background: url('back.jpg') no-repeat center center fixed;
     background-size: cover;
     background-blend-mode: lighten;
     color: #222;
@@ -238,4 +238,5 @@ h1 {
 .parameter-container.active {
     display: flex;
     flex-direction: row; /* <-- THIS IS THE FIX */
+
 }
